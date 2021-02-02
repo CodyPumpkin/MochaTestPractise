@@ -1,0 +1,1 @@
+mocha /test/main.test.js --reporter mochawesome 

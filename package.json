@@ -1,0 +1,29 @@
+{
+  "name": "airwallexapitest",
+  "version": "1.0.0",
+  "description": "It's a automation test framework.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "MochaTest"
+  ],
+  "author": "Mingyu",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "chai": "^4.2.0"
+  },
+  "devDependencies": {
+    "mochawesome": "^6.2.1"
+  }
+}

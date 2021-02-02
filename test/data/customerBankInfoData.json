@@ -1,0 +1,1275 @@
+[
+        {
+            "name":"Success : LOCAL + US + AccountName2 + AccountNo1 + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "US",
+                        "account_name": "Jo",
+                        "account_number": "1",
+                        "aba": "123456789"
+                    }
+                },
+            "expect":{
+                "status_code":200,
+                "body":{
+                    "success": "Bank details saved"
+                }
+            }
+        },
+        {
+        "name":"Success : LOCAL + US + AccountName5(special character) + AccountNo10(special character) + aba(special character)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_name": "John@",
+                    "account_number": "123@#$1231",
+                    "aba": "11122#33A"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + US + AccountName10 + AccountNo17 + aba(special character) + wrong swift code(check ignore)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_name": "John@Smith",
+                    "account_number": "12345678912345678",
+                    "swift_code": "ICBCCNBJ",
+                    "aba": "11122#33A"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + US + AccountName2 + AccountNo1 + swift code8 + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "US",
+                    "account_name": "##",
+                    "account_number": "@",
+                    "swift_code": "1@BCUSBJ",
+                    "aba": "#1122233A"
+
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + US + AccountName10 + AccountNo9 + swift code11(special character)  + aba(special character)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "US",
+                    "account_name": "John Smith",
+                    "account_number": "12345678912345678",
+                    "swift_code": "I%BCUSBJ12#",
+                    "aba": "111==233A"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + US + AccountName5(special character) + AccountNo10(special character) + swift code8 + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "US",
+                    "account_name": "J$hn ",
+                    "account_number": "123456789*",
+                    "swift_code": "I%BCUSB#",
+                    "aba": "111==233A"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + AU + AccountName2 + AccountNo6 + bsb",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "AU",
+                    "account_name": "J$",
+                    "account_number": "123456",
+                    "bsb": "11122U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + AU + AccountName10 + AccountNo9 + bsb(special character) + wrong swift code(check ignore)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "AU",
+                    "account_name": "John Smith",
+                    "account_number": "123456789",
+                    "swift_code": "ICBCUSBD",
+                    "bsb": "111*2U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + AU + AccountName10(special character) + AccountNo7(special character) + bsb(special character)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "AU",
+                    "account_name": "Joh$ Smith",
+                    "account_number": "12345@!",
+                    "bsb": "111*2U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + AU + AccountName2 + AccountNo9 + swift code8 + bsb",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "AU",
+                    "account_name": "Jo",
+                    "account_number": "123456789",
+                    "swift_code": "ICBCAUBD",
+                    "bsb": "111*2U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + AU + AccountName10 + AccountNo7 + swift code11(special character)  + bsb(special character)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "AU",
+                    "account_name": "John Smith",
+                    "account_number": "1234567",
+                    "swift_code": "ICBCAUBD@#1",
+                    "bsb": "111*2U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + AU + AccountName5(special character) + AccountNo6(special character) + swift code8 + bsb",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "AU",
+                    "account_name": "Joh==",
+                    "account_number": "12()4!",
+                    "swift_code": "ICBCAUBD",
+                    "bsb": "11112U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + CN + AccountName2 + AccountNo8",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "CN",
+                    "account_name": "Jo",
+                    "account_number": "12()4!12",
+                    "bsb": "11112U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + CN + AccountName10 + AccountNo10  +  wrong swift code(check ignore)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "CN",
+                    "account_name": "张张张张嘴最最最大大",
+                    "account_number": "12()4!121234567we",
+                    "swift_code": "ICBCAUBD"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : LOCAL + CN + AccountName5(special character) + AccountNo20(special character) + aba(check ignore)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "CN",
+                    "account_name": "张lucy",
+                    "account_number": "12()4!121234567we123",
+                    "aba": "11199233A"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + CN + AccountName2 + AccountNo8  +  swift code8",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "CN",
+                    "account_name": "aa",
+                    "account_number": "12345678",
+                    "swift_code": "ICBKCNBJ"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + CN + AccountName10 + AccountNo11  +  swift code11(special character)",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "CN",
+                    "account_name": "1234567891",
+                    "account_number": "12345678912345678",
+                    "swift_code": "ICBKCNBJ==1"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Success : SWIFT + CN + AccountName5(special character) + AccountNo20(special character) + bsb(check ignore)+  swift code8",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "CN",
+                    "account_name": "1234=",
+                    "account_number": "12345678912345678==1",
+                    "swift_code": "ICBKCNBJ",
+                    "bsb": "11112U"
+                }
+            },
+        "expect":{
+            "status_code":200,
+            "body":{
+                "success": "Bank details saved"
+            }
+        }
+    },
+    {
+        "name":"Fail: payment_method is empty ,  US + AccountName2 + AccountNo1+ swift code8  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "",
+                    "bank_country_code": "US",
+                    "account_name": "Jo",
+                    "account_number": "=",
+                    "swift_code": "ICBKUSBJ",
+                    "aba": "11122333A"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'payment_method' field required, the value should be either 'LOCAL' or 'SWIFT'"
+                }
+            }
+    },
+    {
+        "name":"Fail: missing payment_method,  US + AccountName2 + AccountNo1+ swift code8  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "bank_country_code": "US",
+                    "account_name": "Jo",
+                    "account_number": "=",
+                    "swift_code": "ICBKUSBJ",
+                    "aba": "11122333A"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'payment_method' field required, the value should be either 'LOCAL' or 'SWIFT'"
+                }
+            }
+    },
+    {
+        "name":"Fail: bank_country_code is empty, LOCAL  + AccountName2 + AccountNo1 + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "",
+                    "account_name": "Jo",
+                    "account_number": "1",
+                    "aba": "11122333A"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'"
+                }
+            }
+    },
+    {
+        "name":"Fail: missing bank_country_code, LOCAL  + AccountName2 + AccountNo1 + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "account_name": "Jo",
+                    "account_number": "1",
+                    "aba": "11122333A"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'"
+                }
+            }
+    },
+    {
+        "name":"Fail: account_name is empty,  LOCAL + US  + AccountNo1  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_name": "",
+                    "account_number": "1",
+                    "aba": "123456789"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'account_name' is required"
+                }
+            }
+    },
+    {
+        "name":"Fail: missing account_name,  LOCAL + US  + AccountNo1  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_number": "1",
+                    "aba": "123456789"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'account_name' is required"
+                }
+            }
+    },
+    {
+        "name":"Fail: account_number is empty,  LOCAL + US  + AccountName2  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_name": "Jo",
+                    "account_number": "",
+                    "aba": "123456789"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'account_number' is required"
+                }
+            }
+    },
+    {
+        "name":"Fail: missing account_number,  LOCAL + US  + AccountName2  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "LOCAL",
+                    "bank_country_code": "US",
+                    "account_name": "Jo",
+                    "aba": "123456789"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'account_number' is required"
+                }
+            }
+    },
+    {
+        "name":"Fail: missing swift_code,  SWIFT + US  + AccountName2+ AccountNo1  + aba",
+        "enable":true,
+        "reqestInfo":
+            {
+                "url": "{host}/bank",
+                "method": "POST",
+                "header": {
+                    "Content-Type": "application/json"
+                    },
+                "data":{
+                    "payment_method": "SWIFT",
+                    "bank_country_code": "US",
+                    "account_name": "Jo",
+                    "account_number": "1",
+                    "aba": "123456789"
+                }
+            },
+        "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "'swift_code' is required when payment method is 'SWIFT'"
+                }
+            }
+        },
+        {
+            "name":"Fail: swift_code is empty,  SWIFT + US  + AccountName2+ AccountNo1  + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "Jo",
+                        "account_number": "1",
+                        "swift_code": "",
+                        "aba": "123456789"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "'swift_code' is required when payment method is 'SWIFT'"
+                    }
+                }
+            },
+            {
+                "name":"Fail: aba is empty,  SWIFT + US  + AccountName2+ AccountNo1  + swift code8",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT",
+                            "bank_country_code": "US",
+                            "account_name": "Jo",
+                            "account_number": "1",
+                            "swift_code": "12BCUSBJ",
+                            "aba": ""
+                        }
+                    },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'aba' is required when bank country code is 'US'"
+                        }
+                    }
+            },
+            {
+                "name":"Fail: missing aba,  SWIFT + US  + AccountName2+ AccountNo1  + swift code8",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT",
+                            "bank_country_code": "US",
+                            "account_name": "Jo",
+                            "account_number": "1",
+                            "swift_code": "12BCUSBJ"
+                        }
+                    },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'aba' is required when bank country code is 'US'"
+                        }
+                    }
+            },
+            {
+                "name":"Fail: bsb is empty,  SWIFT + AU  + AccountName2+ AccountNo6  + swift code8",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT",
+                            "bank_country_code": "AU",
+                            "account_name": "Jo",
+                            "account_number": "123456",
+                            "swift_code": "12BCAUBJ",
+                            "bsb": ""
+                        }
+                    },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'bsb' is required when bank country code is 'AU'"
+                        }
+                    }
+            },
+            {
+                "name":"Fail: missing bsb,  SWIFT + AU  + AccountName2+ AccountNo6  + swift code8",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT",
+                            "bank_country_code": "AU",
+                            "account_name": "Jo",
+                            "account_number": "123456",
+                            "swift_code": "12BCAUBJ"
+                        }
+                    },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'bsb' is required when bank country code is 'AU'"
+                        }
+                    }
+            },
+            {
+                "name":"Fail: invalid payment_method, SWIFT1 + US + AccountName2 + AccountNo1 + swift code8 + aba",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT1",
+                            "bank_country_code": "US",
+                            "account_name": "JO",
+                            "account_number": "1",
+                            "swift_code": "1EBCUSBJ",
+                            "aba": "11122233A"
+        
+                        }
+                    },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'payment_method' field required, the value should be either 'LOCAL' or 'SWIFT'"
+                        }
+                    }
+                },
+            {
+                "name":"Fail: invalid bank_country_code,  SWIFT + AU@ + AccountName2 + AccountNo1 + swift code8 + aba",
+                "enable":true,
+                "reqestInfo":
+                    {
+                        "url": "{host}/bank",
+                        "method": "POST",
+                        "header": {
+                            "Content-Type": "application/json"
+                            },
+                        "data":{
+                            "payment_method": "SWIFT",
+                            "bank_country_code": "AU@",
+                            "account_name": "J$",
+                            "account_number": "1",
+                            "swift_code": "1EBCAUBJ",
+                            "bsb": "11122U"
+                          }
+                     },
+                "expect":{
+                        "status_code":400,
+                        "body":{
+                            "error": "'bank_country_code' is required, and should be one of 'US', 'AU', or 'CN'"
+                        }
+                    }
+                },
+        {
+            "name":"Fail: Invalid account_name, LOCAL + US + AccountName1 + AccountNo1 + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "US",
+                        "account_name": "J",
+                        "account_number": "1",
+                        "aba": "123456789"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_name should be between 2 and 10"
+                    }
+                }
+        },
+        {
+            "name":"Fail: Invalid account_name, LOCAL + US + AccountName11 + AccountNo1 + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "US",
+                        "account_name": "JulinJulin1",
+                        "account_number": "1",
+                        "aba": "123456789"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_name should be between 2 and 10"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid account_number,  LOCAL + US  + AccountName2  + AccountNo18 + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "US",
+                        "account_name": "Ju",
+                        "account_number": "123456789123456789",
+                        "aba": "123456789"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_number should be between 1 and 17 when bank_country_code is 'US'"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid account_number,  LOCAL + AU  + AccountName2  + AccountNo5 + bsb",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "AU",
+                        "account_name": "Ju",
+                        "account_number": "12345",
+                        "bsb": "123456"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_number should be between 6 and 9 when bank_country_code is 'AU'"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid account_number,  LOCAL + AU  + AccountName2  + AccountNo10 + bsb",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "AU",
+                        "account_name": "Ju",
+                        "account_number": "1234567891",
+                        "bsb": "123456"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_number should be between 6 and 9 when bank_country_code is 'AU'"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid account_number,  LOCAL + CN  + AccountName2  + AccountNo7",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "CN",
+                        "account_name": "Jo",
+                        "account_number": "1234567"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_number should be between 8 and 20 when bank_country_code is 'CN'"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid account_number,  LOCAL + CN  + AccountName2  + AccountNo21",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "LOCAL",
+                        "bank_country_code": "CN",
+                        "account_name": "Jo",
+                        "account_number": "123456789123456789123"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of account_number should be between 8 and 20 when bank_country_code is 'CN'"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid swift_code,  SWIFT + US  + AccountName2+ AccountNo1  + swift_code(7) + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "##",
+                        "account_number": "@",
+                        "swift_code": "WEBCUSB",
+                        "aba": "11122233A"
+    
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of 'swift_code' should be either 8 or 11"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid swift_code,  SWIFT + US  + AccountName2+ AccountNo1  + swift_code(9) + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "##",
+                        "account_number": "@",
+                        "swift_code": "WEBCUSB45",
+                        "aba": "11122233A"
+    
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "Length of 'swift_code' should be either 8 or 11"
+                    }
+                }
+        },
+        {
+            "name":"Fail: invalid swift_code,  SWIFT + AU  + AccountName2 + AccountNo6   + swift_code(not match) + bsb",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "AU",
+                        "account_name": "Jo",
+                        "account_number": "123456",
+                        "swift_code": "ICBCCNBD",
+                        "bsb": "11122U"
+                    }
+                },
+            "expect":{
+                    "status_code":400,
+                    "body":{
+                        "error": "The swift code is not valid for the given bank country code: AU"
+                    }
+                }
+        },
+        {
+            "name":"Fail : invalid swift_code, SWIFT + US + AccountName2 + AccountNo1 + swift_code8(not on 5th and 6th) + aba",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "##",
+                        "account_number": "@",
+                        "swift_code": "JRE12US3",
+                        "aba": "#1122233A"
+    
+                    }
+                },
+            "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "The swift code is not valid for the given bank country code: US"
+                }
+            }
+        },
+        {
+            "name":"Fail : invalid swift_code, SWIFT + CN + AccountName2 + AccountNo8  +  swift code8(not match)",
+            "enable":true,
+            "reqestInfo":
+                {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                        "payment_method": "SWIFT",
+                        "bank_country_code": "CN",
+                        "account_name": "aa",
+                        "account_number": "12345678",
+                        "swift_code": "ICBKUSBJ"
+                    }
+                },
+            "expect":{
+                "status_code":400,
+                "body":{
+                    "error": "The swift code is not valid for the given bank country code: CN"
+                }
+            }
+        },
+        {
+            "name":"Fail: invalid bsb,  SWIFT + AU + AccountName2 + AccountNo6 + swift code8 + aba",
+            "enable":true,
+            "reqestInfo":
+                  {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                       "payment_method": "SWIFT",
+                        "bank_country_code": "AU",
+                        "account_name": "J$",
+                        "account_number": "123456",
+                        "swift_code": "1EBCAUBJ",
+                        "aba": "11122U345"
+                          }
+                     },
+            "expect":{
+                   "status_code":400,
+                    "body":{
+                        "error": "'bsb' is required when bank country code is 'AU'"
+                        }
+                    }
+                },
+        {
+            "name":"Fail: invalid aba,  SWIFT + US + AccountName2 + AccountNo1 + swift code8 + bsb",
+            "enable":true,
+            "reqestInfo":
+                  {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                       "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "Jo",
+                        "account_number": "1",
+                        "swift_code": "1EBCUSBJ",
+                        "bsb": "12U345"
+                          }
+                     },
+            "expect":{
+                   "status_code":400,
+                    "body":{
+                        "error": "'aba' is required when bank country code is 'US'"
+                        }
+                    }
+                },
+        {
+            "name":"Fail: invalid aba,  SWIFT + US  + AccountName2+ AccountNo1  + swift code8 + aba(not9)",
+            "enable":true,
+            "reqestInfo":
+                  {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                       "payment_method": "SWIFT",
+                        "bank_country_code": "US",
+                        "account_name": "Jo",
+                        "account_number": "1",
+                        "swift_code": "1EBCUSBJ",
+                        "aba": "12U3457900"
+                          }
+                     },
+            "expect":{
+                   "status_code":400,
+                    "body":{
+                        "error": "Length of 'aba' should be 9"
+                        }
+                    }
+                },        
+        {
+            "name":"Fail: invalid bsb,  SWIFT + AU  + AccountName2 + AccountNo6 + swift code8 + bsb(not6)",
+            "enable":true,
+            "reqestInfo":
+                  {
+                    "url": "{host}/bank",
+                    "method": "POST",
+                    "header": {
+                        "Content-Type": "application/json"
+                        },
+                    "data":{
+                       "payment_method": "SWIFT",
+                        "bank_country_code": "AU",
+                        "account_name": "Jo",
+                        "account_number": "123456",
+                        "swift_code": "1EBCAUBJ",
+                        "bsb": "12U3457"
+                          }
+                     },
+            "expect":{
+                   "status_code":400,
+                    "body":{
+                        "error": "Length of 'bsb' should be 6"
+                        }
+                    }
+                }
+]
